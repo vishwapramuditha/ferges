@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 22h20L12 2zm0 3.99L18.82 20H5.18L12 5.99z'/%3E%3C/svg%3E" type="image/svg+xml">
+    <style>
+        /* Custom styles to apply Inter font globally and ensure smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Glass effect class */
+        .glass-effect {
+            background-color: rgba(255, 255, 255, 0.05); /* Very subtle white background with transparency */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        /* Specific adjustments for contrast on hover for glass elements */
+        .glass-effect:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque on hover */
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Delay for sequential animations */
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+
+        /* Accordion Content transition for smooth expand/collapse */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .accordion-content.active {
+            max-height: 500px; /* Adjust based on your max expected content height */
+            opacity: 1;
+        }
+
+        .accordion-icon.rotate {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="text-white antialiased flex flex-col min-h-screen">
+
+    <div class="video-background fixed inset-0 w-full h-full -z-10 overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute w-full h-full object-cover">
+            <source src="fnq.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+    </div>
+
+    <div class="fixed top-4 left-4 z-20">
+        <a href="index.html" class="inline-block p-3 rounded-full glass-effect hover:bg-gray-800 transition-colors duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 12v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V12m-2-2V7.5a2.5 2.5 0 00-2.5-2.5h-3A2.5 2.5 0 009 7.5V10"></path>
+            </svg>
+        </a>
+    </div>
+
+    <main class="flex-grow flex justify-center py-20 px-4">
+        <div class="container mx-auto max-w-3xl">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-12 text-white drop-shadow-lg text-center animate-fadeInUp">
+                Frequently Asked Questions
+            </h1>
+
+            <div class="space-y-6">
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">What is this service about?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">Our service combines powerful web development with reliable hosting to deliver high-performance websites that are fast, secure, and built to scale. We handle everything from design to deployment, so you can focus on growing your business.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">Why use lightweight tools like Alpine.js?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">Alpine.js is a minimal JavaScript framework that offers reactive and declarative templates directly in your HTML. It's lightweight, fast, and perfect for adding interactive elements without the overhead of larger frameworks, contributing to faster load times.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">Can I remove Alpine.js if I don't need it?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">Yes, our modular approach allows for the removal or replacement of specific technologies like Alpine.js if your project doesn't require its features. We build tailored solutions to fit your exact needs.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">Can I remove Tailwind CSS?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">While Tailwind CSS is a core part of our efficient development workflow, we can adapt to your preferences. If you have an existing CSS framework or specific styling requirements, we can work with that too.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">What if I only need one language?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">No problem! Our multilingual support is optional. If your business only operates in one language, we will configure your website accordingly, keeping the code lean and focused on your needs.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">How do I disable dark mode?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">If dark mode is enabled on your site, you will typically find a toggle switch in the user interface (often in the header or footer). For development versions, it might be controlled in the theme configuration or settings file.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">How do I set up CMS authentication with Cloudflare?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">Setting up CMS authentication with Cloudflare typically involves using Cloudflare Access to protect your CMS dashboard. This allows you to define who can access your CMS based on identity providers like Google, GitHub, or your own enterprise directory.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">How do I set up Decap CMS with Netlify?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">Decap CMS integrates seamlessly with Netlify. You'll need to configure your `config.yml` file, enable Identity on Netlify, and possibly set up Git Gateway for authentication. We can guide you through this process during deployment.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">How do I change the supported languages?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">Supported languages are typically defined in a configuration file within your project's code. You can add or remove languages by modifying this file and ensuring corresponding translation files are available for each language.</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-gray-800 transition-colors duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg md:text-xl font-semibold text-white">What are the functions in the 'functions' folder?</h3>
+                        <span class="text-2xl text-gray-300 transform transition-transform duration-300 accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="mt-4 text-gray-300 text-sm md:text-base">The 'functions' folder typically contains serverless functions (e.g., Netlify Functions, AWS Lambda). These are small, single-purpose pieces of code that run on demand for tasks like form submissions, API integrations, or dynamic content generation without needing a dedicated server.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black py-8 text-center text-gray-400 border-t border-gray-800">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm md:text-base">
+            <p class="mb-4 md:mb-0">&copy; 2025 YAZ DEVELOPMENT. All rights reserved.</p>
+            <div class="flex flex-wrap justify-center space-x-4">
+                <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors duration-300">Return Policy</a>
+                <a href="#" class="hover:text-white transition-colors duration-300">Terms & Conditions</a>
+                <a href="#" class="hover:text-white transition-colors duration-300">System</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.querySelector('.accordion-content');
+            const icon = element.querySelector('.accordion-icon');
+
+            if (content.classList.contains('active')) {
+                // Collapse
+                content.classList.remove('active');
+                icon.classList.remove('rotate');
+                // Temporarily set maxHeight to scrollHeight then to 0 for smooth collapse
+                content.style.maxHeight = content.scrollHeight + 'px';
+                setTimeout(() => {
+                    content.style.maxHeight = '0px';
+                }, 10); // Small delay to ensure transition applies
+            } else {
+                // Expand
+                content.classList.add('active');
+                icon.classList.add('rotate');
+                // Set maxHeight to scrollHeight to allow smooth expansion
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+
+        // Optional: Reset maxHeight on window resize to handle responsiveness
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.accordion-content.active').forEach(content => {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            });
+        });
+    </script>
+
+</body>
+</html>
